@@ -36,7 +36,7 @@ def transcript(video_id):
 
 ### Other ways to call it
 - **REST / any language:** `POST https://api.apify.com/v2/acts/refulgent_enchantment_ghr~youtube-transcript-translate/run-sync-get-dataset-items?token=...` with `{"videos": ["dQw4w9WgXcQ"]}`.
-- **AI agents (Claude, Cursor, n8n) via MCP:** add `https://mcp.apify.com/?actors=refulgent_enchantment_ghr/youtube-transcript-translate` as an MCP server.
+- **AI agents (Claude, Cursor, n8n) via MCP:** add `https://mcp.apify.com?tools=refulgent_enchantment_ghr/youtube-transcript-translate` as an MCP server (header `Authorization: Bearer <APIFY_TOKEN>`, or sign in to Apify on first connection).
 - **No code:** [Apify Store page](https://apify.com/refulgent_enchantment_ghr/youtube-transcript-translate): paste URLs, download JSON / CSV / SRT / VTT.
 
 ### Price
