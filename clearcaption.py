@@ -44,7 +44,10 @@ def fetch_many(videos, translate_to=None, token=None, timeout=300):
             out[vid] = TranscriptError(item.get("status"))
             continue
         tr = item.get("translation") or {}
-        out[vid] = _segments(tr.get("segments") if translate_to and tr.get("segments") else item.get("segments"))
+        if translate_to and not tr.get("segments"):
+            out[vid] = TranscriptError(f"translation to {translate_to!r} is unavailable")
+            continue
+        out[vid] = _segments(tr.get("segments") if translate_to else item.get("segments"))
     return out
 
 
