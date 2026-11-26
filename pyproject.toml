@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clearcaption"
+version = "0.1.0"
+description = "YouTube transcripts that work from cloud servers (AWS, GCP, Colab): drop-in fallback for youtube-transcript-api, with timestamped translation."
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+authors = [{ name = "ClearCaption", email = "21karrat@gmail.com" }]
+dependencies = ["requests>=2.20"]
+keywords = ["youtube", "transcript", "subtitles", "captions", "youtube-transcript-api", "srt", "vtt", "translation", "apify"]
+classifiers = ["Programming Language :: Python :: 3", "Operating System :: OS Independent", "Topic :: Multimedia :: Video"]
+
+[project.urls]
+Homepage = "https://apify.com/clearcaption/youtube-transcript-translate"
+Repository = "https://github.com/Andrii2203/clearcaption-youtube-transcript"
+
+[tool.setuptools]
+py-modules = ["clearcaption"]

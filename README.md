@@ -10,7 +10,7 @@ Apify's rotating proxies, so it works from any server. It can also translate: it
 **Free:** ~1,000 videos/month with a free Apify account ($5 monthly credit, no credit card).
 
 ```bash
-pip install requests
+pip install clearcaption
 export APIFY_TOKEN=your_token   # free account: https://console.apify.com/sign-up
 ```
 
