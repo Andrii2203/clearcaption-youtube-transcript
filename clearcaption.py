@@ -17,7 +17,7 @@ import os
 
 import requests
 
-ACTOR = os.environ.get("YTT_CLOUD_ACTOR", "refulgent_enchantment_ghr~youtube-transcript-translate")
+ACTOR = os.environ.get("YTT_CLOUD_ACTOR", "clearcaption~youtube-transcript-translate")
 API = "https://api.apify.com/v2/acts/{actor}/run-sync-get-dataset-items"
 
 
