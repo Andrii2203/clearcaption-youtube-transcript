@@ -7,6 +7,8 @@ YouTube blocks cloud IP ranges, and translated captions (`transcript.translate('
 ClearCaption is a drop-in fallback: the same output (`[{"text", "start", "duration"}]`), but the request runs on
 Apify's rotating proxies, so it works from any server. It can also translate: it fetches the original track and translates it.
 
+**Free:** ~1,000 videos/month with a free Apify account ($5 monthly credit, no credit card).
+
 ```bash
 pip install requests
 export APIFY_TOKEN=your_token   # free account: https://console.apify.com/sign-up
