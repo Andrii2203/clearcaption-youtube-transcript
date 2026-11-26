@@ -57,3 +57,31 @@ def fetch(video, translate_to=None, token=None):
     if isinstance(seg, Exception):
         raise seg
     return seg
+
+
+def main(argv=None):
+    """CLI: clearcaption VIDEO [VIDEO ...] [--to de] [--srt]  (needs APIFY_TOKEN)"""
+    import argparse, json, sys
+    ap = argparse.ArgumentParser(prog="clearcaption", description="YouTube transcripts from any server (videos, channels, playlists).")
+    ap.add_argument("videos", nargs="+", help="video / channel / playlist URLs or video IDs")
+    ap.add_argument("--to", dest="translate_to", help="translate to language code (de, es, uk...), timestamps kept")
+    ap.add_argument("--srt", action="store_true", help="print SRT instead of plain text")
+    ap.add_argument("--json", action="store_true", help="print raw segments as JSON")
+    a = ap.parse_args(argv)
+    res = fetch_many(a.videos, a.translate_to)
+    for vid, seg in res.items():
+        if isinstance(seg, Exception):
+            print(f"# {vid}: {seg}", file=sys.stderr)
+            continue
+        if a.json:
+            print(json.dumps({vid: seg}, ensure_ascii=False))
+        elif a.srt:
+            ts = lambda s: "%02d:%02d:%02d,%03d" % (s // 3600, s % 3600 // 60, s % 60, round(s % 1 * 1000) % 1000)
+            for i, s in enumerate(seg, 1):
+                print(f"{i}\n{ts(s['start'])} --> {ts(s['start'] + s['duration'])}\n{s['text']}\n")
+        else:
+            print(f"# {vid}\n" + " ".join(s["text"] for s in seg) + "\n")
+
+
+if __name__ == "__main__":
+    main()

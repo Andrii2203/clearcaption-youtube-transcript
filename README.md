@@ -54,3 +54,15 @@ Pay per use on Apify, no subscription. The free Apify plan includes monthly cred
 | Billing | proxy plan | monthly plan | per video, $0 without captions |
 
 MIT license. Issues and PRs welcome.
+
+## Command line
+
+```bash
+clearcaption dQw4w9WgXcQ                 # plain text
+clearcaption dQw4w9WgXcQ --to de --srt   # German SRT, timestamps kept
+clearcaption https://www.youtube.com/@freecodecamp --json
+```
+
+## Other ways to use it
+- **JavaScript / TypeScript:** `npm i clearcaption` ([clearcaption-js](https://github.com/Andrii2203/clearcaption-js))
+- **n8n:** community node `n8n-nodes-clearcaption` ([repo](https://github.com/Andrii2203/n8n-nodes-clearcaption))
